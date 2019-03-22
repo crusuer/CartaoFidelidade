@@ -54,8 +54,14 @@ public class MainController {
 		}
 		return "user/homePage";
 	}
-	@RequestMapping(value = "/vencimento", method = RequestMethod.GET)
-	public String vencimentoPage(Model model) {
-		return "user/vencimentoPage";
+	
+	@RequestMapping(value = "/assoc", method = RequestMethod.GET)
+	public String assocPage(Model model, Authentication authentication) {
+		return "user/assocPage";
+	}
+	
+	@RequestMapping(value = "/info", method = RequestMethod.GET)
+	public String infoPage(Model model) {
+		return "user/infoPage";
 	}
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
   <head>
 
@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Tela de Vencimento</title>
+    <title>Tela inicial</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -29,11 +29,11 @@
 
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/home">Bem-vindo</a>
+				<li class="nav-item active"><a class="nav-link" href="/home">Bem-vindo</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="/assoc">Associados</a>
 				</li>
-				<li class="nav-item active"><a class="nav-link" href="/info">Informações</a>
+				<li class="nav-item"><a class="nav-link" href="/info">Informações</a>
 				</li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0" th:action="@{/logout}"
@@ -48,13 +48,10 @@
     <!-- Page Content -->
     <div class="container">
 		<div class="row">
-			<div class="col-lg-12 text-left">
+			<div class="col-lg-12 text-center">
 			<br>
-        		<h3 class="mt-5">Você possui <span style="color: orange">20</span> dias restantes de utilização do aplicativo.</h3>
-        		<h3>Há <span>20</span> clientes associados.</h3>
-        		<h3>Seu estabelecimento é do tipo: <span>Pizzaria</span>.</h3>
-        		<h3>Seu cartão fidelidade é de <span>10 marcações</span>.</h3>
-        		<h3>A validade do seu cartão é de: <span>03 meses</span>.</h3>
+        		<h1 class="mt-5">Olá, <span th:text="${user}"></span>.</h1>
+        		<h1 class="mt-2">Seja bem-vindo ao sistema Fidelity!</h1>
         </div>
       </div>
     </div>

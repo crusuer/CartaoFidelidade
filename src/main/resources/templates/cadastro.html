@@ -11,7 +11,7 @@
 
   </head>
   <body class="text-center">
-    <form th:object="${membro}" th:action="@{/cadastro}" method="post" class="form-signin">
+    <form th:object="${cadastro}" th:action="@{/cadastro}" method="post" class="form-signin">
   <h1 class="h3 mb-3 font-weight-bold">Cadastro de Cliente</h1>
   <label for="usuario" class="sr-only">Usu&aacute;rio</label>
   <input type="text" id="usuario" th:field="*{usuario}" class="form-control" placeholder="Usuário" required>
@@ -21,6 +21,9 @@
   <label th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}">Pass Error</label>
   <label for="confsenha" class="sr-only">Confirmar Senha</label>
   <input type="password" id="confsenha" class="form-control" placeholder="Confirmar Senha" onkeyup='check_pass();' required>
+  <label for="telefone" class="sr-only">Telefone</label>
+  <input type="text" id="telefone" th:field="*{telefone}" class="form-control" placeholder="Telefone" required>
+  <label th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}">Tel Error</label>
   <input type="text" id="tipo" name="tipo" th:value="ROLE_USER" style="display:none;">
   <button class="btn btn-lg btn-primary btn-block" id="submit" name="submit" type="submit" disabled>Cadastrar</button>
   <a class="btn btn-lg btn-danger btn-block" href="/">Cancelar</a>

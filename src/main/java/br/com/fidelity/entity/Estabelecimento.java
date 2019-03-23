@@ -24,7 +24,7 @@ public class Estabelecimento {
 
 	private int tipoEstab;
 
-	private int validade;
+	private int validadeCartao;
 
 	private String telefone;
 
@@ -35,6 +35,8 @@ public class Estabelecimento {
 	private String cidade;
 
 	private String uf;
+
+	private int validade;
 
 	public Membro getUsuario() {
 		return usuario;
@@ -107,4 +109,13 @@ public class Estabelecimento {
 	public void setUf(String uf) {
 		this.uf = uf;
 	}
+
+	public int getValidadeCartao() {
+		return validadeCartao;
+	}
+
+	public void setValidadeCartao(int validadeCartao) {
+		this.validadeCartao = validadeCartao;
+	}
+
 }

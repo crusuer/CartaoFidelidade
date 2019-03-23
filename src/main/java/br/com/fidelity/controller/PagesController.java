@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.fidelity.dto.CadastroDTO;
+import br.com.fidelity.entity.Cliente;
 import br.com.fidelity.entity.Estabelecimento;
 import br.com.fidelity.entity.Membro;
+import br.com.fidelity.repository.ClienteRepository;
 import br.com.fidelity.repository.EstabelecimentoRepository;
 import br.com.fidelity.repository.MembroRepository;
 import br.com.fidelity.utils.TimeUtils;
@@ -27,6 +29,9 @@ public class PagesController {
 
     @Autowired
     EstabelecimentoRepository estabelecimentoRepository;
+    
+    @Autowired
+    ClienteRepository clienteRepository;
     
     TimeUtils timeUtils = new TimeUtils();
 
@@ -64,6 +69,7 @@ public class PagesController {
             if(membro.getTipo().equals("ROLE_ADMIN")) {
             	Estabelecimento estab = new Estabelecimento();
             	estab.setUsuario(membro);
+            	estab.setValidade(20);
             	estab.setTelefone(cadastroDTO.getTelefone());
             	estab.setEndereco(cadastroDTO.getEndereco());
             	estab.setBairro(cadastroDTO.getBairro());
@@ -71,12 +77,16 @@ public class PagesController {
             	estab.setUf(cadastroDTO.getUf());
             	estab.setCategoria(cadastroDTO.getCategoria());
             	estab.setTipoEstab(cadastroDTO.getTipoEstab());
-            	estab.setValidade(cadastroDTO.getValidade());
+            	estab.setValidadeCartao(cadastroDTO.getValidadeCartao());
             	membroRepository.save(membro);
             	estabelecimentoRepository.save(estab);
             	
             } else {
+            	Cliente cli = new Cliente();
+            	cli.setUsuario(membro);
+            	cli.setTelefone(cadastroDTO.getTelefone());
             	membroRepository.save(membro);
+            	clienteRepository.save(cli);
             }
             
             cadastroDTO = null;

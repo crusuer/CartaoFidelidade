@@ -14,7 +14,7 @@ public class CadastroDTO {
 
 	private int tipoEstab;
 
-	private int validade;
+	private int validadeCartao;
 
 	private String telefone;
 
@@ -25,6 +25,8 @@ public class CadastroDTO {
 	private String cidade;
 
 	private String uf;
+
+	private int validade;
 
 	public String getUsuario() {
 		return usuario;
@@ -120,6 +122,14 @@ public class CadastroDTO {
 
 	public void setUf(String uf) {
 		this.uf = uf;
+	}
+
+	public int getValidadeCartao() {
+		return validadeCartao;
+	}
+
+	public void setValidadeCartao(int validadeCartao) {
+		this.validadeCartao = validadeCartao;
 	}
 
 }

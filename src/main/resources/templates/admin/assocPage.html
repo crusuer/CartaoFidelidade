@@ -59,21 +59,12 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>abc</td>
-								<td>01/10</td>								
-							</tr>
-							<tr>
-								<td>xpto</td>
-								<td>09/10</td>								
+							<tr th:each="associado : ${associados}">
+								<td th:text="${associado.cliente}"></td>
+								<td><span th:text="${associado.pontos}"></span>/<span th:text="${associado.total}"></span>
+								</td>
 							</tr>
 						</tbody>
-						<!-- <tr th:each="membro : ${membros}">
-							<td th:text="${membro.usuario}"></td>
-							<td><a class="btn btn-sm btn-danger"
-								th:href="@{/admin/usuarios/del/{usuario}(usuario=${membro.usuario})}" onclick="return confirm('Tem certeza que quer desabilitar o usuario?')">Desabilitar</a>
-							</td>
-						</tr> -->
 					</table>
 				</div>
         </div>

@@ -48,24 +48,25 @@
     <!-- Page Content -->
     <div class="container">
 		<div class="row">
-			<div class="col-lg-12 text-left">
+			<div class="col-lg-12 text-center">
 			<br>
-			<div class="table-responsive mt-5">
+			<h1 class="mt-5">Informações</h1>
+			<div class="table-responsive">
 				<table class="table table-bordered">
 					<tr>
-						<td>Você possui <span style="color: orange">20</span> dias restantes de utilização do aplicativo</td>
+						<td>Você possui <span style="color: orange" th:text="${validade}"></span> dias restantes de utilização do aplicativo</td>
 					</tr>
 					<tr>
-						<td>Há <span>20</span> clientes associados</td>
+						<td>Há <span th:text="${associados}"></span> clientes associados</td>
 					</tr>
 					<tr>
-						<td>Seu estabelecimento é do tipo: <span>Pizzaria</span></td>
+						<td>Seu estabelecimento é da categoria: <span th:text="${categoria}"></span></td>
 					</tr>
 					<tr>
-						<td>Seu cartão fidelidade é de <span>10 marcações</span>.</td>
+						<td>Seu cartão fidelidade é de <span th:text="${marcacoes}"></span>.</td>
 					</tr>
 					<tr>
-						<td>A validade do seu cartão é de: <span>03 meses</span>.</td>
+						<td>A validade do seu cartão é de: <span th:text="${validadeCartao}"></span> meses.</td>
 					</tr>
 				</table>
 			</div>

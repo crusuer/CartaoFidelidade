@@ -1,5 +1,7 @@
 package br.com.fidelity.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,7 +12,9 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "Cliente", uniqueConstraints = { @UniqueConstraint(name = "CLI_UK", columnNames = "usuario") })
-public class Cliente {
+public class Cliente implements Serializable {
+
+	private static final long serialVersionUID = -1415667788803076886L;
 
 	@Id
 	@GeneratedValue

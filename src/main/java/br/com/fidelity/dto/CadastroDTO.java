@@ -9,6 +9,12 @@ public class CadastroDTO {
 	private String tipo;
 
 	private boolean habilitado;
+	
+	private String nome;
+	
+	private String diasFuncionamento;
+	
+	private String horarioFuncionamento;
 
 	private int categoria;
 
@@ -58,6 +64,30 @@ public class CadastroDTO {
 
 	public void setHabilitado(boolean habilitado) {
 		this.habilitado = habilitado;
+	}	
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getDiasFuncionamento() {
+		return diasFuncionamento;
+	}
+
+	public void setDiasFuncionamento(String diasFuncionamento) {
+		this.diasFuncionamento = diasFuncionamento;
+	}
+
+	public String getHorarioFuncionamento() {
+		return horarioFuncionamento;
+	}
+
+	public void setHorarioFuncionamento(String horarioFuncionamento) {
+		this.horarioFuncionamento = horarioFuncionamento;
 	}
 
 	public int getCategoria() {

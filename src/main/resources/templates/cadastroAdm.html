@@ -21,29 +21,20 @@
   <label th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}">Pass Error</label>
   <label for="confsenha" class="sr-only">Confirmar Senha</label>
   <input type="password" id="confsenha" class="form-control" placeholder="Confirmar Senha" onkeyup='check_pass();' required>
+  <label for="nome" class="sr-only">Nome</label>
+  <input type="text" id="nome" th:field="*{nome}" class="form-control" placeholder="Nome estabelecimento" required>
+  <label th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Name Error</label>
   <label for="categoria" class="sr-only">Categoria</label>
   <select class="form-control" th:field="*{categoria}">
   	<optgroup label="Categorias">
-	  	<option th:value="1" th:text="Bar"></option>
-	  	<option th:value="2" th:text="Barbearia"></option>
-	  	<option th:value="3" th:text="Cabeleireiro"></option>
-	  	<option th:value="4" th:text="Farmácia"></option>
-	  	<option th:value="5" th:text="Lanchonete"></option>
-	  	<option th:value="6" th:text="Lava-Rápido"></option>
-	  	<option th:value="7" th:text="Livraria"></option>
-	  	<option th:value="8" th:text="Manicure"></option>
-	  	<option th:value="9" th:text="Marcenaria"></option>
-	  	<option th:value="10" th:text="Pizzaria"></option>
-	  	<option th:value="11" th:text="Restarurante"></option>
+  		<option th:each="entry : ${categorias.entrySet()}" th:value="${entry.key}" th:text="${entry.value}"></option>
 	 </optgroup>
   </select>
   <label th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}">Cat Error</label>
   <label for="tipoEstab" class="sr-only">TipoEstab</label>
   <select class="form-control mt-2" th:field="*{tipoEstab}">
-  	<optgroup label="Espaços no cartão">
-	  	<option th:value="1" th:text="10"></option>
-	  	<option th:value="2" th:text="15"></option>
-	  	<option th:value="3" th:text="20"></option>
+  	<optgroup label="Tipo de cartão fidelidade">
+  		<option th:each="entry : ${tipoEstab.entrySet()}" th:value="${entry.key}" th:text="${entry.value}"></option>
 	</optgroup>
   </select>
   <select class="form-control mt-2" th:field="*{validadeCartao}">

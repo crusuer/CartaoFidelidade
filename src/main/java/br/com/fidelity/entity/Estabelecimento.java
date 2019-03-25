@@ -1,5 +1,7 @@
 package br.com.fidelity.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,7 +12,9 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "Estabelecimento", uniqueConstraints = { @UniqueConstraint(name = "ESTAB_UK", columnNames = "usuario") })
-public class Estabelecimento {
+public class Estabelecimento implements Serializable {
+
+	private static final long serialVersionUID = -5387566636508834896L;
 
 	@Id
 	@GeneratedValue
@@ -19,6 +23,12 @@ public class Estabelecimento {
 	@OneToOne
 	@JoinColumn(name = "usuario", nullable = false)
 	private Membro usuario;
+
+	private String nome;
+
+	private String diasFuncionamento;
+
+	private String horarioFuncionamento;
 
 	private int categoria;
 
@@ -44,6 +54,30 @@ public class Estabelecimento {
 
 	public void setUsuario(Membro usuario) {
 		this.usuario = usuario;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getDiasFuncionamento() {
+		return diasFuncionamento;
+	}
+
+	public void setDiasFuncionamento(String diasFuncionamento) {
+		this.diasFuncionamento = diasFuncionamento;
+	}
+
+	public String getHorarioFuncionamento() {
+		return horarioFuncionamento;
+	}
+
+	public void setHorarioFuncionamento(String horarioFuncionamento) {
+		this.horarioFuncionamento = horarioFuncionamento;
 	}
 
 	public int getCategoria() {

@@ -16,25 +16,55 @@
 
   <body>
 
-    <!-- Include _menu.html -->
-    <th:block th:include="/user/_menu"></th:block>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarsExampleDefault"
+			aria-controls="navbarsExampleDefault" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" href="/user">Bem-vindo</a></li>
+				<li class="nav-item"><a class="nav-link" href="/connect">Associar-se</a></li>
+				<li class="nav-item"><a class="nav-link" href="/checkin">Pontuar</a></li>
+				<li class="nav-item active"><a class="nav-link" href="/score">Consultar Pontos</a></li>
+				<li class="nav-item"><a class="nav-link" href="/checkout">Resgatar Pontos</a></li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0" th:action="@{/logout}"
+				method="post">
+				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Sair</button>
+			</form>
+		</div>
+	</nav>
+	<script src="/jquery/jquery.min.js"></script>
+	<script src="/jquery/bootstrap.bundle.min.js"></script>
 
     <!-- Page Content -->
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
+        	<br>
           <h1 class="mt-5">Sua Pontua&ccedil;&atilde;o </h1>
           <div class="table-responsive">
-          	<table class="table" th:each="ponto : ${pontos}">
+          	<table class="table" th:each="associado : ${associados}">
+          		<thead>
+				    <tr>
+				      <th scope="col">Estabelecimento</th>
+				      <th scope="col">Pontos</th>
+				      <th></th>
+				    </tr>
+				  </thead>
           		<tbody>
           			<tr>
-          				<td th:text="${ponto.estab}"></td>
-          				<td>7/10</td>				
+          				<td th:text="${associado.cliente}"></td>
+          				<td><span th:text="${associado.pontos}"></span>/<span th:text="${associado.total}"></span></td>
           			</tr>
-          			<tr class="content">
+          			<!-- <tr class="content">
           				<td><img class="img img-fluid" th:src="${ponto.imagem}" alt="Cartao Indisponivel"/></td>
           				<td></td>
-          			</tr>
+          			</tr> -->
           		</tbody>
           	</table>
           </div>

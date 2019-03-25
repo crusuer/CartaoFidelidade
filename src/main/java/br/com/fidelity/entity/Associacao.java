@@ -9,56 +9,65 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "Associacao", uniqueConstraints = {
-		@UniqueConstraint(name = "ASSOC_UK", columnNames = { "usuarioCli", "usuarioEstab" }) })
+@Table(name = "Associacao", uniqueConstraints = {@UniqueConstraint(name = "ASSOC_UK", columnNames = {"usuarioCli", "usuarioEstab"})})
 public class Associacao {
 
-	@Id
-	@GeneratedValue
-	private int id;
+    @Id
+    @GeneratedValue
+    private int id;
 
-	@ManyToOne
-	@JoinColumn(name = "usuarioCli", referencedColumnName = "usuario", nullable = false)
-	private Cliente usuarioCli;
+    @ManyToOne
+    @JoinColumn(name = "usuarioCli", referencedColumnName = "usuario", nullable = false)
+    private Cliente usuarioCli;
 
-	@ManyToOne
-	@JoinColumn(name = "usuarioEstab", referencedColumnName = "usuario", nullable = false)
-	private Estabelecimento usuarioEstab;
+    @ManyToOne
+    @JoinColumn(name = "usuarioEstab", referencedColumnName = "usuario", nullable = false)
+    private Estabelecimento usuarioEstab;
 
-	private int tipoEstab;
+    private int tipoEstab;
 
-	private String data;
+    private String apelido;
 
-	public Cliente getUsuarioCli() {
-		return usuarioCli;
-	}
+    private String data;
 
-	public void setUsuarioCli(Cliente usuarioCli) {
-		this.usuarioCli = usuarioCli;
-	}
+    public Cliente getUsuarioCli() {
+        return usuarioCli;
+    }
 
-	public Estabelecimento getUsuarioEstab() {
-		return usuarioEstab;
-	}
+    public void setUsuarioCli(Cliente usuarioCli) {
+        this.usuarioCli = usuarioCli;
+    }
 
-	public void setUsuarioEstab(Estabelecimento usuarioEstab) {
-		this.usuarioEstab = usuarioEstab;
-	}
+    public Estabelecimento getUsuarioEstab() {
+        return usuarioEstab;
+    }
 
-	public int getTipoEstab() {
-		return tipoEstab;
-	}
+    public void setUsuarioEstab(Estabelecimento usuarioEstab) {
+        this.usuarioEstab = usuarioEstab;
+    }
 
-	public void setTipoEstab(int tipoEstab) {
-		this.tipoEstab = tipoEstab;
-	}
+    public int getTipoEstab() {
+        return tipoEstab;
+    }
 
-	public String getData() {
-		return data;
-	}
+    public void setTipoEstab(int tipoEstab) {
+        this.tipoEstab = tipoEstab;
+    }
 
-	public void setData(String data) {
-		this.data = data;
-	}
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getApelido() {
+        return apelido;
+    }
+
+    public void setApelido(String apelido) {
+        this.apelido = apelido;
+    }
 
 }

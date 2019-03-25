@@ -67,7 +67,7 @@ public class PagesController {
         categorias.put(8, "Manicure");
         categorias.put(9, "Marcenaria");
         categorias.put(10, "Pizzaria");
-        categorias.put(11, "Restarurante");
+        categorias.put(11, "Restaurante");
 
         tipoEstab.put(1, "10 marcações");
         tipoEstab.put(2, "15 marcações");
@@ -232,6 +232,7 @@ public class PagesController {
     @GetMapping("/rule")
     public String rulePage(Model model, @RequestParam(value = "estabId", required = true) String estabId) {
         model.addAttribute("estabId", estabId);
+        model.addAttribute("nome",estabelecimentoRepository.findByUsuario(membroRepository.findByUsuario(estabId)).getNome());
         return "user/rulePage";
     }
 
